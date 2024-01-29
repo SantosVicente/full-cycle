@@ -38,3 +38,4 @@
 ### Comandos principais:
 
 - go mod init github.com/SantosVicente/full-cycle/goapi -> inicializar repo
+- go mod tidy -> equivalente a npm i, deve ser acionado após adicionar um package com import
