@@ -27,10 +27,10 @@
 
 ## Anotações importantes
 
-## Ordem de desenvolvimento:
+### Ordem de desenvolvimento:
 
-- [ ] Microsserviço API de Produtos - GoLang
-- [ ] API das ordens de compra - Nest.js
+- [X] API Usando GoLang
+- [ ] API Usando Nest.js
 - [ ] Frontend com Next.js
 - [ ] Integração do Frontend com Backend
 - [ ] Processamento de pagamento - GoLang
