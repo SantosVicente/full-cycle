@@ -1,0 +1,52 @@
+// Criar uma categoria
+POST http://localhost:8080/category HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "name": "Category 2"
+}
+
+###
+// Pegar uma categoria pelo id
+GET http://localhost:8080/category/a8701170-898a-4a9c-b203-2d77cbac0d69 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+###
+// Pegar todas as categorias
+GET http://localhost:8080/category HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+###
+// Criar um produto
+POST http://localhost:8080/product HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "name": "Product 3",
+    "description": "Product 3 description", 
+    "price": 100,
+    "category_id": "a8701170-898a-4a9c-b203-2d77cbac0d69",
+    "image_url": "https://avatars.githubusercontent.com/u/101016049?v=4"
+}
+
+###
+// Pegar todos os produtos
+GET http://localhost:8080/product HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+###
+// Pegar um produto pelo id
+GET http://localhost:8080/product/362c102d-a57d-4cd6-869f-222d78ed93fc HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+###
+// Pegar todos os produtos de uma categoria
+GET http://localhost:8080/product/category/a8701170-898a-4a9c-b203-2d77cbac0d69 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json

@@ -37,5 +37,20 @@
 
 ### Comandos principais:
 
+### GoLang
+
 - go mod init github.com/SantosVicente/full-cycle/goapi -> inicializar repo
 - go mod tidy -> equivalente a npm i, deve ser acionado após adicionar um package com import
+- cd goapi/cmd/catalog -> navegar até a pasta catalog
+- go run main.go -> para rodar a API em GoLang (faça após realizar o passo anterior)
+
+### Docker
+
+- docker rm -f $(docker ps -a -q) -> Limpar os containers do dockers rodando atualmente na máquina
+- docker-compose up -d -> Subir o container do projeto com
+- docker-compose logs mysql -> para ver os logs caso os arquivos nao sejam criados
+
+### MySQL
+
+- docker-compose exec mysql bash -> entrar na máquina do MYSQL
+- mysql -uroot -p fullcycle -> após isso coloque a senha para acessar o DB e modificá-lo
