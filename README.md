@@ -34,3 +34,7 @@
 - [ ] Frontend com Next.js
 - [ ] Integração do Frontend com Backend
 - [ ] Processamento de pagamento - GoLang
+
+### Comandos principais:
+
+- go mod init github.com/SantosVicente/full-cycle/goapi -> inicializar repo
