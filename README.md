@@ -33,7 +33,7 @@
 - [ ] API Usando Nest.js
 - [ ] Frontend com Next.js
 - [ ] Integração do Frontend com Backend
-- [ ] Processamento de pagamento - GoLang
+- [ ] API de pagamento com GoLang
 
 ### Comandos principais:
 
