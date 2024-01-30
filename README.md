@@ -1,6 +1,6 @@
 # E-Commerce
 
-- Stack Backend: Node.js, Nest.js, Docker, RabbitMQ, GoLang
+- Stack Backend: Node.js, Nest.js, Docker, RabbitMQ, GoLang, TypeORM, MySQL, Rest, JWT, TypeScript
 - Stack Frontend Web: Next.js, Shadcn UI, Tailwind CSS
 
 ## Requisitos
@@ -29,7 +29,7 @@
 
 ### Ordem de desenvolvimento:
 
-- [X] API Usando GoLang
+- [x] API Usando GoLang
 - [ ] API Usando Nest.js
 - [ ] Frontend com Next.js
 - [ ] Integração do Frontend com Backend
