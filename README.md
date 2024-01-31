@@ -1,7 +1,7 @@
 # E-Commerce
 
 - Stack Backend: Node.js, Nest.js, Docker, RabbitMQ, GoLang, TypeORM, MySQL, Rest, JWT, TypeScript
-- Stack Frontend Web: Next.js, Shadcn UI, Tailwind CSS
+- Stack Frontend Web: Next.js, Shadcn UI, Tailwind CSS, Server Components, TypeScript
 
 ## Requisitos
 
