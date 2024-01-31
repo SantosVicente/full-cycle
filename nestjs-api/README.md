@@ -1,3 +1,14 @@
+# Estrutura básica do Nest:
+
+- AppModule:
+
+  - Gera outros modulos
+  - Esses modulos gerados se comunicam entre si e podem ser exportados
+
+    - Cada modulo geram controllers, services, entre outras coisas
+
+  - como criar modulos: nest g resource, nest g --help para mais
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
