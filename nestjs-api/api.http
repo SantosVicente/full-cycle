@@ -33,11 +33,18 @@ DELETE http://localhost:3000/products/0517b3d0-c3f2-44e7-8aa3-995dabb09dad
 ###
 
 GET http://localhost:3000/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoiY2hyaXMiLCJpYXQiOjE3MDY3MjQyNDMsImV4cCI6MTcwNjcyNDMwM30.i_8E2IItSih4WfjyaNn_ayYvgqCJ_D4d2bqTrLaEa-4
+
+###
+
+GET http://localhost:3000/orders/ec313330-79ce-4d1e-9ef1-79f43d35e2cd
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoiY2hyaXMiLCJpYXQiOjE3MDY3MjQyNDMsImV4cCI6MTcwNjcyNDMwM30.i_8E2IItSih4WfjyaNn_ayYvgqCJ_D4d2bqTrLaEa-4
 
 ###
 
 POST http://localhost:3000/orders
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiam9obiIsImlhdCI6MTcwNjcyNjc1OSwiZXhwIjoxNzA2NzI2ODE5fQ.-6qD55GVUk88MduKvaymFvDKgNB2QBeRAKylpKG01vw
 
 {
   "items": [
@@ -51,4 +58,14 @@ Content-Type: application/json
     }
   ],
   "cart_hash": "cart_hash_1"
+}
+
+###
+
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "john",
+  "password": "john"
 }
