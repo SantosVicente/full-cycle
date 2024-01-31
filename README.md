@@ -35,7 +35,15 @@
 - [ ] Integração do Frontend com Backend
 - [ ] API de pagamento com GoLang
 
-- [ ] Frontend: - [ ] Criar a página que listagem de produtos (HOME); - [ ] Criar topo com campo select de categorias, campo de busca, logo do carrinho e link para login - [ ] Criar página de detalhes de um produto - [ ] Criar a página do carrinho e lógica para adicionar um produto no carrinho - [ ] Criar a página do checkout para cliente fechar a compra - [ ] Criar página de sucesso da compra - [ ] Criar página de login
+### Frontend
+
+- [ ] Criar a página que listagem de produtos (HOME);
+- [ ] Criar topo com campo select de categorias, campo de busca, logo do carrinho e link para login
+- [ ] Criar página de detalhes de um produto
+- [ ] Criar a página do carrinho e lógica para adicionar um produto no carrinho
+- [ ] Criar a página do checkout para cliente fechar a compra
+- [ ] Criar página de sucesso da compra
+- [ ] Criar página de login
 
 ### Comandos principais:
 
