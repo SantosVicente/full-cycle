@@ -30,7 +30,7 @@ export default function RootLayout({
       >
         <Navbar />
         <Separator orientation="horizontal" className="bg-zinc-400" />
-        {children}
+        <main>{children}</main>
       </body>
     </html>
   );

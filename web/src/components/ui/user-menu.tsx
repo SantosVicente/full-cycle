@@ -41,16 +41,16 @@ const UserMenu = ({ user }: UserMenuProps) => {
         <DropdownMenuContent>
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={redirectToCart}>
-            <ShoppingCart size={24} />
+          <DropdownMenuItem onClick={redirectToCart} className="gap-2">
+            <ShoppingCart size={20} />
             <span>Meu Carrinho</span>
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={redirectToMyOrders}>
-            <LayoutList size={24} />
+          <DropdownMenuItem onClick={redirectToMyOrders} className="gap-2">
+            <LayoutList size={20} />
             <span>Meus Pedidos</span>
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            <LogOutIcon />
+          <DropdownMenuItem className="gap-2">
+            <LogOutIcon size={20} />
             <span>Sair</span>
           </DropdownMenuItem>
         </DropdownMenuContent>
