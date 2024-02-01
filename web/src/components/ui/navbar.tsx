@@ -23,11 +23,11 @@ const Navbar = () => {
         <div className="flex flex-grow justify-center">
           <SearchBar />
         </div>
-        <Button size={"icon"}>
-          <Link href="/my-cart">
+        <Link href="/my-cart">
+          <Button size={"icon"}>
             <ShoppingCart size={24} />
-          </Link>
-        </Button>
+          </Button>
+        </Link>
         <UserMenu user={{}} />
       </div>
       <div className="flex content-center py-1">

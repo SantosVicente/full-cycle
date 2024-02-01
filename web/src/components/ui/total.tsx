@@ -4,7 +4,7 @@ import { CircleDollarSign } from "lucide-react";
 export function Total(props: { total: number }) {
   return (
     <>
-      <Badge className="mt-1 gap-2 border-primary text-base font-bold">
+      <Badge className="mt-1 gap-2 border-primary text-base font-bold hover:bg-primary">
         <CircleDollarSign size={20} />
         {`Total - ${new Intl.NumberFormat("pt-BR", {
           style: "currency",
