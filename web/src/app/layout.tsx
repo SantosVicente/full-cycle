@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/ui/navbar";
 import { Separator } from "@/components/ui/separator";
+import { HeartIcon } from "lucide-react";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -28,9 +29,21 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <Navbar />
-        <Separator orientation="horizontal" className="bg-zinc-400" />
-        <main>{children}</main>
+        <div className="min-h-screen">
+          <Navbar />
+          <Separator orientation="horizontal" />
+          <main>{children}</main>
+        </div>
+        <footer className="flex h-20 w-full flex-col items-center justify-center">
+          <Separator orientation="horizontal" className="bg-zinc-600" />
+          <p className="flex h-full items-center justify-center gap-1">
+            Feito com{" "}
+            <span className="text-red-500">
+              <HeartIcon size={20} />
+            </span>{" "}
+            pela Full Cycle
+          </p>
+        </footer>
       </body>
     </html>
   );

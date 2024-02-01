@@ -47,6 +47,10 @@
 
 ### Comandos principais:
 
+- npx serve -l 9000 images:
+  sobe o repo das imagens, rodar ele no
+  frontend
+
 ### GoLang
 
 - go mod init github.com/SantosVicente/full-cycle/goapi -> inicializar repo

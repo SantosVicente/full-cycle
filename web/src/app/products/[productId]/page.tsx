@@ -4,17 +4,15 @@ import { Product } from "@/models";
 import { FileText, Tag } from "lucide-react";
 import Image from "next/image";
 import ProductQuantityForm from "./product-quantity-form";
+import { getProduct } from "@/services/product.service";
 
-const product: Product = {
-  id: "1",
-  name: "Camisa",
-  description: "Camisa branca",
-  price: 100,
-  image_url: "https://source.unsplash.com/random?product",
-  category_id: "1",
-};
+const ProductDetailPage = async ({
+  params,
+}: {
+  params: { productId: string };
+}) => {
+  const product = await getProduct(params.productId);
 
-const ProductDetailPage = ({ params }: { params: { productId: string } }) => {
   return (
     <div className="flex flex-col p-4 md:flex-row">
       <div className="relative h-[360px] w-full md:h-auto">
@@ -25,6 +23,7 @@ const ProductDetailPage = ({ params }: { params: { productId: string } }) => {
           priority
           className="rounded-t-sm md:rounded-l-sm md:rounded-r-none"
           alt={product.name}
+          sizes="100vw"
         />
       </div>
       <div className="w-full rounded-b-sm bg-accent px-3 pb-2 pt-6 md:w-[70%] md:rounded-r-sm">
