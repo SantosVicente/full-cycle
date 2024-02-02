@@ -1,12 +1,15 @@
 import Image from "next/image";
 import { Button } from "./button";
-import { Home, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import SelectCategory from "./select-category";
 import SearchBar from "./search-bar";
 import UserMenu from "./user-menu";
+import { getCategories } from "@/services/category.service";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const categories = await getCategories();
+
   return (
     <div className="w-full bg-primary px-14">
       <div className="flex items-center gap-2 ">
@@ -31,7 +34,7 @@ const Navbar = () => {
         <UserMenu user={{}} />
       </div>
       <div className="flex content-center py-1">
-        <SelectCategory categories={[]} />
+        <SelectCategory categories={categories ?? []} />
 
         <Link
           className="ml-3 flex items-center justify-center gap-1"

@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Product } from "@/models";
 import { FileText, Tag } from "lucide-react";
 import Image from "next/image";
 import ProductQuantityForm from "./product-quantity-form";

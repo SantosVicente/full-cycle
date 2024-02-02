@@ -1,12 +1,30 @@
 import { Product } from "@/models";
 
-export async function getProducts(): Promise<Product[]> {
-  const products = await fetch(`${process.env.CATALOG_API_URL}/product`, {
+export async function getProducts({
+  search,
+  category_id,
+}: {
+  search: string | undefined;
+  category_id: string | undefined;
+}): Promise<Product[]> {
+  let url = `${process.env.CATALOG_API_URL}/product`;
+
+  if (category_id) {
+    url += `/category/${category_id}`;
+  }
+
+  const products = await fetch(url, {
     next: {
       revalidate: 1,
     },
   });
-  return products.json();
+  const data = await products.json();
+  if (search) {
+    return data?.filter((product: Product) =>
+      product.name.toLowerCase().includes(search.toLowerCase()),
+    );
+  }
+  return data;
 }
 
 export async function getProduct(productId: string): Promise<Product> {
