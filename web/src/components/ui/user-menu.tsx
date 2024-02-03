@@ -13,6 +13,7 @@ import {
 } from "./dropdown-menu";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
+import { logoutAction } from "@/server-actions/auth.action";
 
 export type UserMenuProps = {
   user: any | null;
@@ -29,17 +30,25 @@ const UserMenu = ({ user }: UserMenuProps) => {
     router.push("/my-orders");
   };
 
+  const handleLogout = async () => {
+    await logoutAction();
+  };
+
   return user ? (
     <>
       <DropdownMenu>
         <DropdownMenuTrigger>
           <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarImage src={undefined} />
+            <AvatarFallback>
+              {user.username.charAt(0).toUpperCase()}
+            </AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuLabel className="uppercase">
+            Olá, <span className="font-bold">@{user.username}</span>
+          </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={redirectToCart} className="gap-2">
             <ShoppingCart size={20} />
@@ -49,7 +58,7 @@ const UserMenu = ({ user }: UserMenuProps) => {
             <LayoutList size={20} />
             <span>Meus Pedidos</span>
           </DropdownMenuItem>
-          <DropdownMenuItem className="gap-2">
+          <DropdownMenuItem onClick={handleLogout} className="gap-2">
             <LogOutIcon size={20} />
             <span>Sair</span>
           </DropdownMenuItem>

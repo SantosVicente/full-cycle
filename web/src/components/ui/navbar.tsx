@@ -6,9 +6,11 @@ import SelectCategory from "./select-category";
 import SearchBar from "./search-bar";
 import UserMenu from "./user-menu";
 import { getCategories } from "@/services/category.service";
+import { AuthService } from "@/services/auth.service";
 
 const Navbar = async () => {
   const categories = await getCategories();
+  const user = new AuthService().getUser();
 
   return (
     <div className="w-full bg-primary px-14">
@@ -31,7 +33,7 @@ const Navbar = async () => {
             <ShoppingCart size={24} />
           </Button>
         </Link>
-        <UserMenu user={{}} />
+        <UserMenu user={user} />
       </div>
       <div className="flex content-center py-1">
         <SelectCategory categories={categories ?? []} />
