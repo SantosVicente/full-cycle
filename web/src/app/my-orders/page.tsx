@@ -10,114 +10,11 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { CheckIcon, HourglassIcon, XIcon } from "lucide-react";
-
-const orders: Order[] = [
-  {
-    id: "1",
-    items: [
-      {
-        id: 1,
-        quantity: 1,
-        price: 100,
-        product: {
-          id: "1",
-          name: "Produto 1",
-          description: "Descrição do produto 1",
-          price: 100,
-          image_url: "https://source.unsplash.com/random?product",
-          category_id: "1",
-        },
-      },
-      {
-        id: 2,
-        quantity: 2,
-        price: 200,
-        product: {
-          id: "2",
-          name: "Produto 2",
-          description: "Descrição do produto 2",
-          price: 200,
-          image_url: "https://source.unsplash.com/random?product",
-          category_id: "1",
-        },
-      },
-    ],
-    total: 1000,
-    status: OrderStatus.PENDING,
-    created_at: new Date().toISOString(),
-  },
-  {
-    id: "2",
-    items: [
-      {
-        id: 1,
-        quantity: 1,
-        price: 100,
-        product: {
-          id: "1",
-          name: "Produto 1",
-          description: "Descrição do produto 1",
-          price: 100,
-          image_url: "https://source.unsplash.com/random?product",
-          category_id: "1",
-        },
-      },
-      {
-        id: 2,
-        quantity: 2,
-        price: 200,
-        product: {
-          id: "2",
-          name: "Produto 2",
-          description: "Descrição do produto 2",
-          price: 200,
-          image_url: "https://source.unsplash.com/random?product",
-          category_id: "1",
-        },
-      },
-    ],
-    total: 1000,
-    status: OrderStatus.PAID,
-    created_at: new Date().toISOString(),
-  },
-  {
-    id: "3",
-    items: [
-      {
-        id: 1,
-        quantity: 1,
-        price: 100,
-        product: {
-          id: "1",
-          name: "Produto 1",
-          description: "Descrição do produto 1",
-          price: 100,
-          image_url: "https://source.unsplash.com/random?product",
-          category_id: "1",
-        },
-      },
-      {
-        id: 2,
-        quantity: 2,
-        price: 200,
-        product: {
-          id: "2",
-          name: "Produto 2",
-          description: "Descrição do produto 2",
-          price: 200,
-          image_url: "https://source.unsplash.com/random?product",
-          category_id: "1",
-        },
-      },
-    ],
-    total: 1000,
-    status: OrderStatus.FAILED,
-    created_at: new Date().toISOString(),
-  },
-];
+import { OrderServiceFactory } from "@/services/order.service";
 
 export async function MyOrdersListPage() {
-  //const orders = await OrderServiceFactory.create().getOrders();
+  const orders = await OrderServiceFactory.create().getOrders();
+
   return (
     <div className="mx-14 mt-8">
       <h4 className="mb-4 text-3xl font-bold">Meus pedidos</h4>

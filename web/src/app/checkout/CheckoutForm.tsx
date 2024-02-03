@@ -11,7 +11,7 @@ export function CheckoutForm() {
     <form
       action={async (formData: FormData) => {
         //logica para gerar o card hash
-        formData.set("card_hash", "123456");
+        formData.set("cart_hash", "123456");
         await checkoutAction(formData);
       }}
     >

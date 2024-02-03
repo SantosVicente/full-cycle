@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { Order } from "../models";
 import { AuthService } from "./auth.service";
 
@@ -10,6 +11,7 @@ export class OrderService {
         Authorization: `Bearer ${this.authService.getToken()}`,
       },
     });
+
     return await response.json();
   }
 
@@ -23,13 +25,13 @@ export class OrderService {
   }
 
   async createOrder(input: {
-    card_hash: string;
+    cart_hash: string;
     items: { product_id: string; quantity: number }[];
   }): Promise<Order> {
     const response = await fetch(`${process.env.ORDERS_API_URL}/orders`, {
       method: "POST",
       body: JSON.stringify({
-        cart_hash: input.card_hash,
+        cart_hash: input.cart_hash,
         items: input.items.map((item) => ({
           product_id: item.product_id,
           quantity: item.quantity,

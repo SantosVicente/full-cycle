@@ -71,3 +71,7 @@ export class AuthService {
     return now > exp;
   }
 }
+
+export const AuthServiceFactory = {
+  create: () => new AuthService(),
+};

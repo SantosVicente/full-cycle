@@ -9,44 +9,17 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-
-const order: Order = {
-  id: "1",
-  items: [
-    {
-      id: 1,
-      quantity: 1,
-      price: 100,
-      product: {
-        id: "1",
-        name: "Produto 1",
-        description: "Descrição do produto 1",
-        price: 100,
-        image_url: "https://source.unsplash.com/random?product",
-        category_id: "1",
-      },
-    },
-    {
-      id: 2,
-      quantity: 2,
-      price: 200,
-      product: {
-        id: "2",
-        name: "Produto 2",
-        description: "Descrição do produto 2",
-        price: 200,
-        image_url: "https://source.unsplash.com/random?product",
-        category_id: "1",
-      },
-    },
-  ],
-  total: 1000,
-  status: OrderStatus.PENDING,
-  created_at: new Date().toISOString(),
-};
+import { OrderServiceFactory } from "@/services/order.service";
+import { AuthService, AuthServiceFactory } from "@/services/auth.service";
+import { redirect } from "next/navigation";
 
 async function MyOrderDetail({ params }: { params: { orderId: string } }) {
-  //  const order = await OrderServiceFactory.create().getOrder(params.orderId);
+  const order = await OrderServiceFactory.create().getOrder(params.orderId);
+  const isTokenExpired = AuthServiceFactory.create().isTokenExpired();
+
+  if (isTokenExpired) {
+    return redirect(`/login?redirect_to=/my-orders/${params.orderId}`);
+  }
 
   return (
     <div className="mx-14 mt-10">

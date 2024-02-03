@@ -11,11 +11,9 @@ export async function checkoutAction(formData: FormData) {
   const orderService = OrderServiceFactory.create();
   let order: Order;
 
-  console.log(formData.get("card_hash"));
-
   try {
     order = await orderService.createOrder({
-      card_hash: formData.get("card_hash") as string,
+      cart_hash: formData.get("cart_hash") as string,
       items: cart.items.map((item) => ({
         product_id: item.product_id,
         quantity: item.quantity,
