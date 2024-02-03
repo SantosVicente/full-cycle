@@ -6,48 +6,17 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-
-const products = [
-  {
-    id: "1",
-    name: "Produto 1",
-    description: "Descrição do produto 1",
-    price: 100,
-    image_url: "https://source.unsplash.com/random?product",
-    category_id: "1",
-  },
-  {
-    id: "2",
-    name: "Produto 2",
-    description: "Descrição do produto 2",
-    price: 200,
-    image_url: "https://source.unsplash.com/random?product",
-    category_id: "1",
-  },
-];
-
-const cart = {
-  items: [
-    {
-      product_id: "1",
-      quantity: 1,
-      total: 100,
-    },
-    {
-      product_id: "2",
-      quantity: 2,
-      total: 200,
-    },
-  ],
-  total: 1000,
-};
+import { CartServiceFactory } from "@/services/cart.service";
+import { getProductsByIds } from "@/services/product.service";
+import { removeItemFromCartAction } from "@/server-actions/cart.action";
 
 async function MyCartPage() {
-  //const cart = CartServiceFactory.create().getCart();
-  //const productService = new ProductService();
-  //const products = await productService.getProductsByIds(
-  //cart.items.map((item) => item.product_id)
-  //);
+  const cart = CartServiceFactory.create().getCart();
+  console.log(cart);
+  const products = await getProductsByIds(
+    cart.items.map((item) => item.product_id),
+  );
+
   return (
     <div className="mx-14 mt-8">
       <div className="flex items-center gap-3 ">
@@ -84,7 +53,7 @@ async function MyCartPage() {
                     </div>
                   </div>
                   <div className="flex justify-end p-0">
-                    <form>
+                    <form action={removeItemFromCartAction}>
                       <Input type="hidden" name="index" value={index} />
                       <Button
                         variant="destructive"

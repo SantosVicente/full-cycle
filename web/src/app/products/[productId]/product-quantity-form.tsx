@@ -11,6 +11,7 @@ import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Total } from "@/components/ui/total";
+import { addToCartAction } from "@/server-actions/cart.action";
 
 const schema = yup
   .object({
@@ -42,7 +43,17 @@ const ProductQuantityForm = (props: { product: Product }) => {
   }, [watch, product, getValues]);
 
   return (
-    <form className="px-1 py-5">
+    <form
+      className="px-1 py-5"
+      onSubmit={(e) => {
+        e.preventDefault();
+        const form = e.target as HTMLFormElement;
+        const quantityValue = getValues().quantity;
+        const formData = new FormData(form);
+        formData.set("quantity", quantityValue.toString());
+        addToCartAction(formData);
+      }}
+    >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-1">
           <Settings size={20} />
@@ -72,7 +83,7 @@ const ProductQuantityForm = (props: { product: Product }) => {
               value={[field.value]}
               onValueChange={(newValue) => {
                 field.onChange(newValue);
-                setTotal(Number(product.price) * Number(newValue));
+                setTotal(Number(product.price) * Number(newValue[0]));
               }}
             />
           </div>
