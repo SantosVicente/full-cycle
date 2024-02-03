@@ -18,7 +18,6 @@ async function CheckoutSuccessPage({
 }) {
   const orderService = OrderServiceFactory.create();
   const order = await orderService.getOrder(params.orderId);
-  console.log(order);
 
   return (
     <div className="mx-14 mt-10">

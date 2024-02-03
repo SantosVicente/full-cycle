@@ -12,7 +12,6 @@ import { removeItemFromCartAction } from "@/server-actions/cart.action";
 
 async function MyCartPage() {
   const cart = CartServiceFactory.create().getCart();
-  console.log(cart);
   const products = await getProductsByIds(
     cart.items.map((item) => item.product_id),
   );
