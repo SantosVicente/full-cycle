@@ -11,48 +11,14 @@ import {
 } from "@/components/ui/table";
 import { CheckoutForm } from "./CheckoutForm";
 import { Separator } from "@/components/ui/separator";
-
-const products = [
-  {
-    id: "1",
-    name: "Produto 1",
-    description: "Descrição do produto 1",
-    price: 100,
-    image_url: "https://source.unsplash.com/random?product",
-    category_id: "1",
-  },
-  {
-    id: "2",
-    name: "Produto 2",
-    description: "Descrição do produto 2",
-    price: 200,
-    image_url: "https://source.unsplash.com/random?product",
-    category_id: "1",
-  },
-];
-
-const cart = {
-  items: [
-    {
-      product_id: "1",
-      quantity: 1,
-      total: 100,
-    },
-    {
-      product_id: "2",
-      quantity: 2,
-      total: 200,
-    },
-  ],
-  total: 1000,
-};
+import { CartServiceFactory } from "@/services/cart.service";
+import { getProductsByIds } from "@/services/product.service";
 
 async function CheckoutPage() {
-  /* const cart = CartServiceFactory.create().getCart();
-  const productService = new ProductService();
-  const products = await productService.getProductsByIds(
-    cart.items.map((item) => item.product_id)
-  ); */
+  const cart = CartServiceFactory.create().getCart();
+  const products = await getProductsByIds(
+    cart.items.map((item) => item.product_id),
+  );
 
   if (cart.items.length === 0) {
     return redirect("/my-cart");

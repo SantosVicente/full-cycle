@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { checkoutAction } from "@/server-actions/checkout.action";
 import { CircleDollarSign } from "lucide-react";
 
 export function CheckoutForm() {
@@ -10,8 +11,8 @@ export function CheckoutForm() {
     <form
       action={async (formData: FormData) => {
         //logica para gerar o card hash
-        formData.set("card_hash", "123");
-        //await checkoutAction(formData);
+        formData.set("card_hash", "123456");
+        await checkoutAction(formData);
       }}
     >
       <h5 className="mb-2 text-lg font-bold">Dados de pagamento</h5>
@@ -65,8 +66,7 @@ export function CheckoutForm() {
       <div className="mt-8 flex justify-end">
         <Button
           type="submit"
-          variant={"default"}
-          className="mt-3 flex items-center gap-2"
+          className="mt-3 flex items-center gap-2 uppercase"
         >
           <CircleDollarSign size={20} />
           Pagar
